@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class MeasuringDataDto {
-  private String apiId;
+  private String ApiId;
   private String stationId;
   private String stationName;
   private String riverName;
