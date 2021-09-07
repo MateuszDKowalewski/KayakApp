@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class MeasuringDataDto {
   private String apiId;
-  private String stationId;
+  private Long stationId;
   private String stationName;
   private String riverName;
   private Integer waterLevel;
