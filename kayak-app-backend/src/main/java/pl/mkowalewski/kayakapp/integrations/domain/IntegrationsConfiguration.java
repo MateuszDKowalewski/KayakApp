@@ -16,8 +16,8 @@ class IntegrationsConfiguration {
 
   @Bean
   public ImgwDataFacade imgwDataFacade() {
-    ImgwDataMapper imgwDataMapper = Mappers.getMapper(ImgwDataMapper.class);
-    return new ImgwDataFacade(imgwDataMapper, IMGW_API_ID, IMGW_API_URL);
+    MeasuringDataMapper measuringDataMapper = Mappers.getMapper(MeasuringDataMapper.class);
+    return new ImgwDataFacade(measuringDataMapper, IMGW_API_ID, IMGW_API_URL);
   }
 
 }
