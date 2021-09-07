@@ -16,7 +16,7 @@ import pl.mkowalewski.kayakapp.integrations.domain.dto.MeasuringDataDto;
 @AllArgsConstructor
 public class ImgwDataFacade {
 
-  private final ImgwDataMapper imgwDataMapper;
+  private final MeasuringDataMapper measuringDataMapper;
   private final String API_ID;
   private final String API_URL;
 
@@ -31,7 +31,7 @@ public class ImgwDataFacade {
 
     return result.getBody()
         .stream()
-        .map(imgwDataMapper::toDto)
+        .map(data -> measuringDataMapper.toDto(data, API_ID))
         .collect(Collectors.toList());
   }
 
