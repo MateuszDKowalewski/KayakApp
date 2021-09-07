@@ -22,24 +22,17 @@ public class ImgwDataFacade {
 
   public List<MeasuringDataDto> getStationsData() {
     RestTemplate restTemplate = new RestTemplate();
+
     HttpHeaders headers = new HttpHeaders();
     headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+
     HttpEntity<String> httpEntity = new HttpEntity<>("params", headers);
-    ParameterizedTypeReference<List<ImgwDataEntity>> responseType = new ParameterizedTypeReference<List<ImgwDataEntity>>() {};
-    ResponseEntity<List<ImgwDataEntity>> result = restTemplate.exchange(API_URL, HttpMethod.GET, httpEntity, responseType);
+    ResponseEntity<List<ImgwDataEntity>> result = restTemplate.exchange(API_URL, HttpMethod.GET, httpEntity, new ParameterizedTypeReference<List<ImgwDataEntity>>() {});
+
     return result.getBody()
         .stream()
         .map(data -> measuringDataMapper.toDto(data, API_ID))
         .collect(Collectors.toList());
-  }
-
-  public MeasuringDataDto getStationData(Long stationId) throws Exception {
-    // TODO: KA-8 handle exception
-    return getStationsData()
-        .stream()
-        .filter(stationData -> stationData.getStationId().equals(stationId))
-        .findFirst()
-        .orElseThrow(() -> new Exception("Not found station for apiId: " + API_ID + " and id: " + stationId));
   }
 
 }
