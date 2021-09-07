@@ -1,5 +1,7 @@
 package pl.mkowalewski.kayakapp.integrations.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
@@ -8,16 +10,20 @@ class ImgwDataEntity {
   private String stacja;
   private String rzeka;
   private String województwo;
+
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+  private LocalDateTime stan_wody_data_pomiaru;
   private Integer stan_wody;
-  // TODO: add date time format
-  private String stan_wody_data_pomiaru; // LocalDateTime
+
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+  private LocalDateTime temperatura_wody_data_pomiaru;
   private Double temperatura_wody;
-  // TODO: add date time format
-  private String temperatura_wody_data_pomiaru; // LocalDateTime
+
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+  private LocalDateTime zjawisko_lodowe_data_pomiaru;
   private Integer zjawisko_lodowe;
-  // TODO: add date time format
-  private String zjawisko_lodowe_data_pomiaru; // LocalDateTime
+
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+  private LocalDateTime zjawisko_zarastania_data_pomiaru;
   private Integer zjawisko_zarastania;
-  // TODO: add date time format
-  private String zjawisko_zarastania_data_pomiaru; // LocalDateTime
 }
