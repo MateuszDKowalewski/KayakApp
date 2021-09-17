@@ -21,8 +21,6 @@ public class ImgwDataFacade {
   private final String API_URL;
 
   public List<MeasuringDataDto> getStationsData() {
-    System.out.println("Dupa");
-    System.out.println(API_ID);
     System.out.println(API_URL);
     RestTemplate restTemplate = new RestTemplate();
     HttpHeaders headers = new HttpHeaders();
@@ -30,7 +28,6 @@ public class ImgwDataFacade {
     HttpEntity<String> httpEntity = new HttpEntity<>("params", headers);
     ParameterizedTypeReference<List<ImgwDataEntity>> responseType = new ParameterizedTypeReference<List<ImgwDataEntity>>() {};
     ResponseEntity<List<ImgwDataEntity>> result = restTemplate.exchange(API_URL, HttpMethod.GET, httpEntity, responseType);
-    System.out.println("Dupa");
     return result.getBody()
         .stream()
         .map(data -> measuringDataMapper.toDto(data, API_ID))
@@ -47,4 +44,13 @@ public class ImgwDataFacade {
         .orElseThrow(() -> new Exception("Not found station for apiId: " + API_ID + " and id: " + stationId));
   }
 
+  public String getAPI_ID() {
+    // Temporary getter for test
+    return API_ID;
+  }
+
+  public String getAPI_URL() {
+    // Temporary getter for test
+    return API_URL;
+  }
 }
