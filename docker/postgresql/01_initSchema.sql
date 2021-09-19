@@ -22,7 +22,3 @@ SET
 check_function_bodies = false;
 SET
 client_min_messages = warning;
-
-
-CREATE SCHEMA business;
-
