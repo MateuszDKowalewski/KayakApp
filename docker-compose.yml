@@ -1,0 +1,11 @@
+version: '3.6'
+
+services:
+  postgresql:
+    build: docker/postgresql
+    environment:
+      - POSTGRES_USER=kayak-app
+      - POSTGRES_PASSWORD=kayak-app
+      - POSTGRES_DB=kayak-app
+    ports:
+      - "15432:5432"
