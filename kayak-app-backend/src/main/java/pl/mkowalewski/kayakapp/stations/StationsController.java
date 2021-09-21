@@ -1,5 +1,6 @@
 package pl.mkowalewski.kayakapp.stations;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,16 @@ import pl.mkowalewski.kayakapp.stations.domain.dto.StationDto;
 class StationsController {
 
   private final StationsFacade stationsFacade;
+
+  @GetMapping()
+  private List<StationDto> getStationsList() {
+    return stationsFacade.getAllStations();
+  }
+
+  @GetMapping("{id}")
+  private StationDto getStationById(@PathVariable Long id) {
+    return stationsFacade.findStation(id);
+  }
 
   @PostMapping
   private StationDto addStation(@RequestBody StationDto dto) {
