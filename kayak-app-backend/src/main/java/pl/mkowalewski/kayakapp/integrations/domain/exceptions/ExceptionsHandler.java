@@ -1,4 +1,4 @@
-package pl.mkowalewski.kayakapp.stations.domain.exceptions;
+package pl.mkowalewski.kayakapp.integrations.domain.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,5 +15,6 @@ class ExceptionsHandler {
   ErrorResponse stationNotFoundHandler(StationNotFoundException e) {
     return new ErrorResponse(e.getMessage(), ErrorType.NOT_FOUND);
   }
+
 
 }

@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import pl.mkowalewski.kayakapp.integrations.domain.dto.MeasuringDataDto;
+import pl.mkowalewski.kayakapp.integrations.domain.exceptions.StationNotFoundException;
 
 @AllArgsConstructor
 public class ImgwDataFacade {
@@ -39,7 +40,7 @@ public class ImgwDataFacade {
         .stream()
         .filter(stationData -> stationData.getStationId().equals(stationId))
         .findFirst()
-        .orElseThrow(() -> new Exception("Not found station for apiId: " + API_ID + " and id: " + stationId));
+        .orElseThrow(() -> new StationNotFoundException(API_ID, stationId));
   }
 
   public String getAPI_ID() {
