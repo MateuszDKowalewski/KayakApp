@@ -5,7 +5,7 @@ import pl.mkowalewski.kayakapp.common.exceptions.ErrorResponse.ErrorResponseBuil
 public abstract class NotFoundException extends ApplicationException {
 
   public NotFoundException(String message) {
-    super(message, ErrorType.NOT_FOUND);
+    super(message, ErrorType.NOT_FOUND_EXCEPTION);
   }
 
   @Override

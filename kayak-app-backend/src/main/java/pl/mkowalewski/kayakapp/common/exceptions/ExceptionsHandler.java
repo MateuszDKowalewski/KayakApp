@@ -10,9 +10,14 @@ class ExceptionsHandler {
 
   @ExceptionHandler(NotFoundException.class)
   @ResponseStatus(HttpStatus.NOT_FOUND)
-  ErrorResponse stationNotFoundHandler(NotFoundException e) {
+  ErrorResponse notFoundExceptionHandler(NotFoundException e) {
     return e.getResponse();
   }
 
+  @ExceptionHandler(ValidationException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  ErrorResponse validationExceptionHandler(ValidationException e) {
+    return e.getResponse();
+  }
 
 }
