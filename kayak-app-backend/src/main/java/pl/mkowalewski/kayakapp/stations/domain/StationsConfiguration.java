@@ -13,4 +13,9 @@ class StationsConfiguration {
     return new StationsFacade(stationsRepository, stationMapper);
   }
 
+  @Bean
+  StationsViewFacade stationsViewFacade(StationsViewRepository stationsViewRepository) {
+    return new StationsViewFacade(stationsViewRepository);
+  }
+
 }

@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset mkowalewski:202109202032_init_station_entity.sql
+--changeset mkowalewski:202109202032_init_stations.sql
 
 CREATE TABLE public.measuring_stations (
     id BIGINT NOT NULL,
