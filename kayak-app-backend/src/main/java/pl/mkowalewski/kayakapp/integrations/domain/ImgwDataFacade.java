@@ -31,7 +31,6 @@ public class ImgwDataFacade {
         .stream()
         .map(data -> measuringDataMapper.toDto(data, API_ID))
         .collect(Collectors.toList());
-
   }
 
   public MeasuringDataDto getStationData(Long stationId) throws Exception {
