@@ -5,7 +5,7 @@ import pl.mkowalewski.kayakapp.measurs.domain.dto.MeasuringDataDto;
 import pl.mkowalewski.kayakapp.stations.domain.StationsViewFacade;
 
 @AllArgsConstructor
-class MeasuringDataFacade {
+public class MeasuringDataFacade {
 
   private final MeasurigDataRepository measurigDataRepository;
   private final MeasuringDataMapper measuringDataMapper;
