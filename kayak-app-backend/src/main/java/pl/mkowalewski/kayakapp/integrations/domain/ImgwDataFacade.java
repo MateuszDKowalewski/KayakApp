@@ -34,8 +34,7 @@ public class ImgwDataFacade {
         .collect(Collectors.toList());
   }
 
-  public MeasuringDataDto getStationData(Long stationId) throws Exception {
-    // TODO: KA-8 handle exception
+  public MeasuringDataDto getStationData(Long stationId) {
     return getStationsData()
         .stream()
         .filter(stationData -> stationData.getStationId().equals(stationId))

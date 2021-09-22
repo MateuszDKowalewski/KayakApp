@@ -1,6 +1,6 @@
 package pl.mkowalewski.kayakapp.common.exceptions;
 
-enum ValidationErrorType {
+public enum ValidationErrorType {
   NULL,
   NOT_NULL,
   NOT_UNIQUE

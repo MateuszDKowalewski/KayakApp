@@ -26,7 +26,7 @@ public class StationsFacade {
   }
 
   public StationDto addStation(StationDto dto) {
-    // TODO: KA-8 add validator
+    StationDtoValidator.validateForCreate(dto);
     StationEntity entity = stationMapper.toEntity(dto);
     StationEntity savedEntity = stationsRepository.save(entity);
     return stationMapper.toDto(savedEntity);
