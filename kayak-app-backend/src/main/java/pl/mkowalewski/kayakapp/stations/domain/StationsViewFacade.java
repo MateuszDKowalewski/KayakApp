@@ -7,7 +7,7 @@ public class StationsViewFacade {
 
   private final StationsViewRepository stationsViewRepository;
 
-  private StationViewEntity getStation(Long id) {
+  public StationViewEntity getStation(Long id) {
     return stationsViewRepository.getById(id);
   }
 
