@@ -2,6 +2,8 @@ package pl.mkowalewski.kayakapp.measurs;
 
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,13 +20,13 @@ class MeasuringDataController {
   private final MeasuringDataFacade measuringDataFacade;
 
   @GetMapping
-  private List<MeasuringDataDto> getAllMeasuringData() {
-    return measuringDataFacade.getAll();
+  private ResponseEntity<List<MeasuringDataDto>> getAllMeasuringData() {
+    return new ResponseEntity<>(measuringDataFacade.getAll(), HttpStatus.OK);
   }
 
   @PostMapping
-  private MeasuringDataDto addMeasuringData(@RequestBody MeasuringDataDto dto) {
-    return measuringDataFacade.addMeasuringData(dto);
+  private ResponseEntity<MeasuringDataDto> addMeasuringData(@RequestBody MeasuringDataDto dto) {
+    return new ResponseEntity<>(measuringDataFacade.addMeasuringData(dto), HttpStatus.OK);
   }
 
 }

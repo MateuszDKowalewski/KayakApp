@@ -2,6 +2,8 @@ package pl.mkowalewski.kayakapp.stations;
 
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,18 +21,18 @@ class StationsController {
   private final StationsFacade stationsFacade;
 
   @GetMapping()
-  private List<StationDto> getAllStations() {
-    return stationsFacade.getAllStations();
+  private ResponseEntity<List<StationDto>> getAllStations() {
+    return new ResponseEntity<>(stationsFacade.getAllStations(), HttpStatus.OK);
   }
 
   @GetMapping("{id}")
-  private StationDto getStationById(@PathVariable Long id) {
-    return stationsFacade.findStation(id);
+  private ResponseEntity<StationDto> getStationById(@PathVariable Long id) {
+    return new ResponseEntity<>(stationsFacade.findStation(id), HttpStatus.OK);
   }
 
   @PostMapping
-  private StationDto addStation(@RequestBody StationDto dto) {
-    return stationsFacade.addStation(dto);
+  private ResponseEntity<StationDto> addStation(@RequestBody StationDto dto) {
+    return new ResponseEntity<>(stationsFacade.addStation(dto), HttpStatus.OK);
   }
 
 }
