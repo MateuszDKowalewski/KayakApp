@@ -19,7 +19,7 @@ class StationsController {
   private final StationsFacade stationsFacade;
 
   @GetMapping()
-  private List<StationDto> getStationsList() {
+  private List<StationDto> getAllStations() {
     return stationsFacade.getAllStations();
   }
 
