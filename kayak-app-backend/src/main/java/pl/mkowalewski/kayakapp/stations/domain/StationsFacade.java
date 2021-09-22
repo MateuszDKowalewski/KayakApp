@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import pl.mkowalewski.kayakapp.stations.domain.dto.StationDto;
+import pl.mkowalewski.kayakapp.stations.domain.exceptions.StationNotFoundException;
 
 @AllArgsConstructor
 public class StationsFacade {
@@ -19,7 +20,9 @@ public class StationsFacade {
   }
 
   public StationDto findStation(Long id) {
-    return stationMapper.toDto(stationsRepository.getById(id));
+    StationEntity stationEntity = stationsRepository.findById(id)
+        .orElseThrow(() -> new StationNotFoundException(id));
+    return stationMapper.toDto(stationEntity);
   }
 
   public StationDto addStation(StationDto dto) {
