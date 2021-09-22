@@ -9,10 +9,15 @@ class MeasuringDataFacade {
 
   private final MeasurigDataRepository measurigDataRepository;
   private final MeasuringDataMapper measuringDataMapper;
-  private final StationsViewFacade stationsFacade;
+  private final StationsViewFacade stationsViewFacade;
 
   public MeasuringDataDto addMeasuringData(MeasuringDataDto dto) {
-    return null;
+    // TODO: KD-8 add validator
+    MeasuringDataEntity entity = new MeasuringDataEntity();
+    entity.setStation(stationsViewFacade.getStation(dto.getStationId()));
+    entity.setWaterLevel(dto.getWaterLevel());
+    MeasuringDataEntity savedEntity = measurigDataRepository.save(entity);
+    return measuringDataMapper.toDto(savedEntity);
   }
 
 
