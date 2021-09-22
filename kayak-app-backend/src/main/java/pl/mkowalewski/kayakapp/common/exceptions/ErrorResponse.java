@@ -1,10 +1,10 @@
 package pl.mkowalewski.kayakapp.common.exceptions;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
+@Builder
 public class ErrorResponse {
   String message;
   ErrorType errorType;
