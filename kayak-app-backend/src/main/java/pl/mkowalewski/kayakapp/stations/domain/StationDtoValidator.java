@@ -12,7 +12,7 @@ class StationDtoValidator {
     throw new Exception("Can't instantiate static validator class");
   }
 
-  static void validateForCreate(StationDto dto) {
+  static void validateForInstert(StationDto dto) {
     Map<String, ValidationErrorType> validationError = new HashMap<>();
     if(dto.getId() != null) {
       validationError.put("id", ValidationErrorType.NOT_NULL);
@@ -30,7 +30,7 @@ class StationDtoValidator {
       validationError.put("riverName", ValidationErrorType.NULL);
     }
     if(!validationError.isEmpty()) {
-      throw new StationValidationException("Invalid station dto to insert", validationError);
+      throw new StationValidationException("Invalid station dto for insert", validationError);
     }
   }
 

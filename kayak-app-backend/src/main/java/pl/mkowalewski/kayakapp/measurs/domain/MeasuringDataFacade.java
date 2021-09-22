@@ -21,7 +21,7 @@ public class MeasuringDataFacade {
   }
 
   public MeasuringDataDto addMeasuringData(MeasuringDataDto dto) {
-    // TODO: KD-8 add validator
+    MeasuringDataDtoValidator.validateForInsert(dto);
     MeasuringDataEntity entity = new MeasuringDataEntity();
     entity.setStation(stationsViewFacade.getStation(dto.getStationId()));
     entity.setMeasuringTime(dto.getMeasuringTime());
