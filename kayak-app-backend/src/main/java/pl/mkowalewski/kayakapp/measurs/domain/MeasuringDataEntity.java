@@ -1,5 +1,6 @@
 package pl.mkowalewski.kayakapp.measurs.domain;
 
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,5 +27,7 @@ class MeasuringDataEntity {
   private StationViewEntity station;
 
   private Integer waterLevel;
+
+  private LocalDateTime measuringTime;
 
 }

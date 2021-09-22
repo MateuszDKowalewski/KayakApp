@@ -15,6 +15,7 @@ public class MeasuringDataFacade {
     // TODO: KD-8 add validator
     MeasuringDataEntity entity = new MeasuringDataEntity();
     entity.setStation(stationsViewFacade.getStation(dto.getStationId()));
+    entity.setMeasuringTime(dto.getMeasuringTime());
     entity.setWaterLevel(dto.getWaterLevel());
     MeasuringDataEntity savedEntity = measurigDataRepository.save(entity);
     return measuringDataMapper.toDto(savedEntity);
