@@ -24,8 +24,7 @@ class IntegrationsController {
   }
 
   @GetMapping(path = "imgw/{stationId}")
-  private ResponseEntity<MeasuringDataDto> getStationData(@PathVariable Long stationId) throws Exception {
-    // TODO: KA-8 handle exception
+  private ResponseEntity<MeasuringDataDto> getStationData(@PathVariable Long stationId) {
     return new ResponseEntity<>(imgwDataFacade.getStationData(stationId), HttpStatus.OK);
   }
 
